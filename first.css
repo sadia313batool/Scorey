@@ -1,0 +1,544 @@
+/* =================================
+   GENERAL PAGE
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4,
+        #a1c4fd,
+        #c2e9fb
+    );
+
+    background-size: 400% 400%;
+
+    animation: backgroundMove 10s ease infinite;
+}
+
+
+/* Moving background */
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =================================
+   GAME CONTAINER
+================================= */
+
+.game-container {
+
+    width: 90%;
+
+    max-width: 650px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    animation: containerAppear 0.8s ease;
+}
+
+
+@keyframes containerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =================================
+   TITLE
+================================= */
+
+h1 {
+
+    margin-top: 0;
+
+    font-size: 42px;
+
+    color: #ff6b6b;
+
+    animation: titleBounce 1s ease;
+}
+
+
+@keyframes titleBounce {
+
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.instructions {
+
+    color: #666;
+
+    font-size: 18px;
+}
+
+
+/* =================================
+   BATTLE AREA
+================================= */
+
+.battle {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 45px;
+
+    margin: 35px 0;
+}
+
+
+.player,
+.computer {
+
+    text-align: center;
+}
+
+
+.player h2,
+.computer h2 {
+
+    margin-bottom: 10px;
+
+    color: #444;
+}
+
+
+/* =================================
+   HANDS
+================================= */
+
+.hand {
+
+    width: 130px;
+
+    height: 130px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 75px;
+
+    background: #f1f1f1;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 15px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.2s;
+}
+
+
+/* Shake animation */
+
+.shake {
+
+    animation: shake 0.45s infinite;
+}
+
+
+@keyframes shake {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(-12deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(12deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+
+/* =================================
+   VS
+================================= */
+
+.vs {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #ff6b6b;
+
+    animation: vsPulse 0.8s infinite alternate;
+}
+
+
+@keyframes vsPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.25);
+    }
+}
+
+
+/* =================================
+   RESULT
+================================= */
+
+#result {
+
+    min-height: 70px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin: 20px;
+
+    color: #333;
+}
+
+
+/* Result pop */
+
+.result-animation {
+
+    animation: resultPop 0.6s ease;
+}
+
+
+@keyframes resultPop {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =================================
+   RESULT COLOURS
+================================= */
+
+.win {
+
+    color: #06a77d !important;
+
+    text-shadow:
+        0 0 10px rgba(6, 167, 125, 0.4);
+}
+
+
+.lose {
+
+    color: #e63946 !important;
+}
+
+
+.draw {
+
+    color: #f4a261 !important;
+}
+
+
+/* =================================
+   SCORE
+================================= */
+
+#score {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+    color: #444;
+}
+
+
+/* =================================
+   CHOICE BUTTONS
+================================= */
+
+.choices {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.choices button {
+
+    width: 120px;
+
+    height: 120px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #ffd166;
+
+    cursor: pointer;
+
+    font-size: 45px;
+
+    box-shadow:
+        0 7px 0 #d9a900;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.choices button span {
+
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+}
+
+
+/* Button hover */
+
+.choices button:hover {
+
+    transform:
+        translateY(-10px)
+        rotate(3deg)
+        scale(1.05);
+
+    background: #ffb703;
+}
+
+
+/* Button click */
+
+.choices button:active {
+
+    transform:
+        translateY(5px)
+        scale(0.95);
+
+    box-shadow:
+        0 2px 0 #d9a900;
+}
+
+
+/* =================================
+   WINNING EFFECT
+================================= */
+
+.win-effect {
+
+    animation:
+        victory 0.5s infinite alternate;
+}
+
+
+@keyframes victory {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+
+/* =================================
+   RESET BUTTON
+================================= */
+
+.reset-button {
+
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #ff9f1c;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+
+.reset-button:hover {
+
+    transform: scale(1.1);
+
+    background: #f77f00;
+}
+
+
+/* =================================
+   HOME BUTTON
+================================= */
+
+.home-button {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 12px 20px;
+
+    background: #90dbf4;
+
+    color: #333;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+}
+
+
+.home-button:hover {
+
+    transform: scale(1.08);
+
+    background: #5cc8e8;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .game-container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .battle {
+        gap: 15px;
+    }
+
+    .hand {
+        width: 100px;
+        height: 100px;
+        font-size: 55px;
+    }
+
+    .vs {
+        font-size: 22px;
+    }
+
+    .choices button {
+        width: 90px;
+        height: 90px;
+        font-size: 35px;
+    }
+}

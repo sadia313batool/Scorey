@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tic-Tac-Toe</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="second.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>⭕ Tic-Tac-Toe ❌</h1>
+
+        <p class="instructions">
+            Take turns placing X and O. Get three in a row to win!
+        </p>
+
+        <!-- Game message -->
+        <h2 id="message">Player X's turn</h2>
+
+        <!-- Game board -->
+        <div class="board">
+
+            <button class="cell" onclick="makeMove(0)"></button>
+            <button class="cell" onclick="makeMove(1)"></button>
+            <button class="cell" onclick="makeMove(2)"></button>
+
+            <button class="cell" onclick="makeMove(3)"></button>
+            <button class="cell" onclick="makeMove(4)"></button>
+            <button class="cell" onclick="makeMove(5)"></button>
+
+            <button class="cell" onclick="makeMove(6)"></button>
+            <button class="cell" onclick="makeMove(7)"></button>
+            <button class="cell" onclick="makeMove(8)"></button>
+
+        </div>
+
+        <!-- Restart button -->
+        <button class="reset-button" onclick="resetGame()">
+            🔄 Restart Game
+        </button>
+
+        <!-- Back to home button -->
+        <a href="index.html" class="home-button">
+            🏠 Back to Home
+        </a>
+
+    </div>
+
+    <!-- Link JavaScript -->
+    <script src="second.js"></script>
+
+</body>
+
+</html>

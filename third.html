@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GAMEZY - Snake</title>
+
+    <link rel="stylesheet" href="third.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="home.html" class="logo">🎮 GAMEZY</a>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="home.html#games">Games</a>
+        </div>
+    </nav>
+
+
+    <main class="game-container">
+
+        <p class="game-label">GAME 03</p>
+
+        <h1>🐍 Snake</h1>
+
+        <p class="instructions">
+            Eat the food, grow your snake and don't hit the wall!
+        </p>
+
+
+        <div class="score-board">
+            <div>
+                <span>Score</span>
+                <strong id="score">0</strong>
+            </div>
+
+            <div>
+                <span>High Score</span>
+                <strong id="high-score">0</strong>
+            </div>
+        </div>
+
+
+        <div class="game-wrapper">
+
+            <canvas id="game-board"
+                    width="400"
+                    height="400">
+            </canvas>
+
+            <div id="game-message" class="game-message">
+                <h2>🐍 Ready?</h2>
+                <p>Press Start to play!</p>
+            </div>
+
+        </div>
+
+
+        <button id="start-button" class="main-button">
+            ▶ START GAME
+        </button>
+
+
+        <div class="controls">
+
+            <button data-direction="up">⬆️</button>
+
+            <div>
+                <button data-direction="left">⬅️</button>
+                <button data-direction="down">⬇️</button>
+                <button data-direction="right">➡️</button>
+            </div>
+
+        </div>
+
+
+        <p class="keyboard-info">
+            💻 Use your arrow keys or the buttons to move
+        </p>
+
+
+        <a href="index.html" class="home-button">
+            🏠 Back to Home
+        </a>
+
+    </main>
+
+
+    <script src="third.js"></script>
+
+</body>
+
+</html>

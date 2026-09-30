@@ -1,0 +1,417 @@
+/* ------------------------------
+   GENERAL PAGE
+------------------------------ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #ffb6c1,
+        #a8e6cf,
+        #87ceeb
+    );
+
+    color: #333;
+}
+
+
+/* ------------------------------
+   GAME CONTAINER
+------------------------------ */
+
+.game-container {
+    width: 90%;
+    max-width: 550px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
+
+    animation: pageLoad 0.8s ease;
+}
+
+
+/* ------------------------------
+   TITLE
+------------------------------ */
+
+h1 {
+    margin-top: 0;
+
+    font-size: 40px;
+
+    color: #ff6b6b;
+
+    animation: titleBounce 1s ease;
+}
+
+
+/* ------------------------------
+   INSTRUCTIONS
+------------------------------ */
+
+.instructions {
+    font-size: 17px;
+
+    color: #666;
+
+    margin-bottom: 20px;
+}
+
+
+/* ------------------------------
+   GAME MESSAGE
+------------------------------ */
+
+#message {
+    font-size: 24px;
+
+    color: #333;
+
+    min-height: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ------------------------------
+   GAME BOARD
+------------------------------ */
+
+.board {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 100px);
+
+    grid-template-rows:
+        repeat(3, 100px);
+
+    gap: 10px;
+
+    justify-content: center;
+
+    margin: 25px auto;
+}
+
+
+/* ------------------------------
+   GAME CELLS
+------------------------------ */
+
+.cell {
+    width: 100px;
+    height: 100px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background-color: #90dbf4;
+
+    font-size: 50px;
+
+    font-weight: bold;
+
+    color: #333;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hover animation */
+
+.cell:hover {
+    background-color: #5cc8e8;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Click animation */
+
+.cell:active {
+    transform: scale(0.9);
+}
+
+
+/* ------------------------------
+   X AND O ANIMATION
+------------------------------ */
+
+.placed {
+    animation: placeSymbol 0.4s ease;
+}
+
+
+/* Symbol appears by growing */
+
+@keyframes placeSymbol {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ------------------------------
+   WINNING CELLS
+------------------------------ */
+
+.winning-cell {
+    background-color: #ffd166 !important;
+
+    color: #333;
+}
+
+
+/* Winning animation */
+
+.winner-animation {
+    animation: winnerBounce 0.6s infinite alternate;
+}
+
+
+@keyframes winnerBounce {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+        background-color: #06d6a0;
+    }
+}
+
+
+/* ------------------------------
+   WIN MESSAGE
+------------------------------ */
+
+.winner {
+    color: #06a77d !important;
+
+    animation: winnerMessage 0.6s ease;
+}
+
+
+@keyframes winnerMessage {
+
+    0% {
+        transform: scale(0.5);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ------------------------------
+   DRAW MESSAGE
+------------------------------ */
+
+.draw-message {
+    color: #f4a261 !important;
+
+    animation: winnerMessage 0.6s ease;
+}
+
+
+/* ------------------------------
+   RESTART BUTTON
+------------------------------ */
+
+.reset-button {
+    display: block;
+
+    margin: 20px auto 10px;
+
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background-color: #ffd166;
+
+    color: #333;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.reset-button:hover {
+    background-color: #ffb703;
+
+    transform: scale(1.08);
+}
+
+
+.reset-button:active {
+    transform: scale(0.95);
+}
+
+
+/* ------------------------------
+   HOME BUTTON
+------------------------------ */
+
+.home-button {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    background-color: #90dbf4;
+
+    color: #333;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.home-button:hover {
+    background-color: #5cc8e8;
+
+    transform: scale(1.05);
+}
+
+
+/* ------------------------------
+   PAGE LOAD ANIMATION
+------------------------------ */
+
+@keyframes pageLoad {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ------------------------------
+   TITLE ANIMATION
+------------------------------ */
+
+@keyframes titleBounce {
+
+    0% {
+        transform: scale(0.5);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ------------------------------
+   MOBILE DESIGN
+------------------------------ */
+
+@media (max-width: 500px) {
+
+    .game-container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .board {
+        grid-template-columns:
+            repeat(3, 80px);
+
+        grid-template-rows:
+            repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+
+        font-size: 40px;
+    }
+}
